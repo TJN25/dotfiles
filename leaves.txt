@@ -3,6 +3,7 @@ bat
 bitwarden-cli
 cmake
 coder/coder/coder
+docker
 exa
 fd
 felixkratz/formulae/sketchybar
