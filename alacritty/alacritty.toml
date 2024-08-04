@@ -1,0 +1,22 @@
+import = [
+"~/.config/alacritty/theme/themes/catppuccin_latte.toml"
+]
+[env]
+TERM = 'xterm-256color'
+
+[window]
+padding.x = 20
+padding.y = 20
+
+decorations = "Buttonless"
+startup_mode = "Maximized"
+
+opacity = 0.9
+blur = true
+
+option_as_alt = "Both"
+
+
+[font]
+normal.family = "MesloLGS NF"
+size = 18

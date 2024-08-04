@@ -1,0 +1,7 @@
+--target ~/.config
+--ignore=.stowrc
+--ignore=.DS_Store
+--ignore=old-nvim
+--ignore=atuin-stored
+--ignore=tmuxinator
+--ignore=histgrep

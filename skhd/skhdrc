@@ -1,0 +1,75 @@
+## Yabai
+
+alt - h : yabai -m window --focus west
+alt - l : yabai -m window --focus east
+alt - k : yabai -m window --focus north
+alt - j : yabai -m window --focus south
+
+alt - s : yabai -m display --focus west
+alt - g : yabai -m display --focus east
+
+
+ctrl + alt - s : yabai -m window --display west; yabai -m display --focus west
+ctrl + alt - g : yabai -m window --display east; yabai -m display --focus east
+
+shift + alt - r : yabai -m space --rotate 270
+shift + alt - y : yabai -m space --mirror y-axis
+shift + alt - x : yabai -m space --mirror x-axis
+
+shift + alt - t : yabai -m window --toggle float --grid 4:4:1:1:2:2
+
+alt - f : yabai -m window --toggle zoom-fullscreen
+
+alt - e : yabai -m space --balance
+
+
+shift + alt - h : yabai -m window --swap west
+shift + alt - l : yabai -m window --swap east
+shift + alt - k : yabai -m window --swap north
+shift + alt - j : yabai -m window --swap south
+
+ctrl + alt - h : yabai -m window --warp west
+ctrl + alt - l : yabai -m window --warp east
+ctrl + alt - k : yabai -m window --warp north
+ctrl + alt - j : yabai -m window --warp south
+
+
+# Increase Window Size
+ctrl + alt - y : yabai -m window --resize left:-20:0
+ctrl + alt - u : yabai -m window --resize bottom:0:20
+ctrl + alt - i : yabai -m window --resize top:0:-20
+ctrl + alt - o : yabai -m window --resize right:20:0
+
+# Decrease Window Size
+alt + shift - y : yabai -m window --resize right:-20:0
+alt + shift - u : yabai -m window --resize top:0:20
+alt + shift - i : yabai -m window --resize bottom:0:-20
+alt + shift - o : yabai -m window --resize left:20:0
+
+
+shift + alt - p : yabai -m window --space prev
+shift + alt - n : yabai -m window --space next
+
+ctrl + alt - 0 : yabai -m window --space 0
+ctrl + alt - 1 : yabai -m window --space 1
+ctrl + alt - 2 : yabai -m window --space 2
+ctrl + alt - 3 : yabai -m window --space 3
+ctrl + alt - 4 : yabai -m window --space 4
+ctrl + alt - 5 : yabai -m window --space 5
+ctrl + alt - 6 : yabai -m window --space 6
+ctrl + alt - 7 : yabai -m window --space 7
+ctrl + alt - 8 : yabai -m window --space 8
+ctrl + alt - 9 : yabai -m window --space 9
+
+shift + ctrl + alt - n : yabai -m config top_padding 24
+shift + ctrl + alt - m : yabai -m config top_padding 50
+
+## Applications
+
+alt - i : open -2 /Applications/Alacritty.app/
+alt - o : open -a /Applications/Obsidian.app/
+alt - b : open -a /Applications/Firefox.app/
+# ctrl + alt - m : /Applications/Firefox.app/Contents/MacOS/firefox --new-instance -P "Minimal Window"
+# ctrl + alt - n : /Applications/Firefox.app/Contents/MacOS/firefox --new-instance -P "SBGrid"
+ctrl + alt - b : open -na /Applications/Firefox.app/
+ctrl + alt - i : open -na /Applications/Alacritty.app/

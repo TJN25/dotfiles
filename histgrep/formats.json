@@ -1,0 +1,25 @@
+{
+    "simple":{
+        "Input":{
+            "keys":["date","time","directory","command"],
+            "separators":["."," ",": "]
+        },
+        "Output":{
+            "keys":["command","directory"],
+            "separators":[" # from "]
+        },
+        "Color":{
+            "command":{"default":"green","commit":"red"},
+            "directory":{"default":"grey"},
+            "SEPARATOR":{"default":"grey"}},
+        "Excludes":{
+            "command": {
+                "starts_with" : ["cd","clear","ls","ll","pwd","less","more","cat","echo","exit"]
+            },
+            "directory": {
+                "contains" : ["EXAMPLE", "REMINDER"],
+                "ends_with" : ["FOO", "BAR"]
+            }
+        }
+    }
+}

@@ -1,0 +1,10 @@
+export LOADED_PROFILES="${LOADED_PROFILES}\n.bash_paths"
+
+export PATH="/Users/nicth99p/bin/:$PATH"
+export PATH=${PATH}:/Users/nicth99p/edirect
+export PATH=${PATH}:/Users/nicth99p/bin/c-basics/:/Users/nicth99p/bin/tools/
+export PATH=${PATH}:/Users/nicth99p/bin/c-basics/:/Users/nicth99p/bin/wordleSolver/
+export PATH=${PATH}:/Users/nicth99p/bin/c-basics/:/Users/nicth99p/bin/external_tools/
+export PATH=${PATH}:/Applications/CMake.app/Contents/bin/
+export PATH=${PATH}:/opt/homebrew/bin
+export PATH=${PATH}:/Users/nicth99p/go/bin

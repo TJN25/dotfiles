@@ -1,0 +1,37 @@
+#export TERM="xterm-256color-italic"
+export LOADED_PROFILES="${LOADED_PROFILES}\n.my_zsh_profile"
+export EDITOR='nvim'
+export SBGRID_USER=nicholson
+export XDG_CONFIG_HOME=~/.config
+export CONFIG_DIR=~/.config
+export BAT_THEME="gruvbox-light"
+
+export FZF_DEFAULT_COMMAND="fd --hidden  --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden  --strip-cwd-prefix --exclude .git"
+
+_fzf_compgen_path() {
+    fd --type=d --hidden --exclude .git . "$1"
+}
+
+#writes the commands to the log files
+function precmd {
+      hpwd=$history[$((HISTCMD-1))]  
+      if [[ $hpwd == "ls" || $hpwd == "clear" ]]; then
+          echo $pwd
+      else
+         if [[ ${hpwd:0:2} == "cd"  ]]; then  
+             cwd=$OLDPWD
+         else
+             cwd=$PWD
+         fi
+         hpwd="$(date "+%Y-%m-%d.%H:%M:%S") $cwd: ${hpwd% ### *}" 
+         echo "$hpwd" >> ~/.logs/zsh-history-$(date "+%Y-%m-%d").log
+      fi                           
+}
+
+bindkey -v '^?' backward-delete-char
+
+setopt globdots
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# unsetopt CASE_GLOB

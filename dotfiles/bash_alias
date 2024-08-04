@@ -1,0 +1,80 @@
+fcount() {
+	ls $1 | wc -l
+}
+
+
+if [ -z $LOADED_PROFILES ]; then
+LOADED_PROFILES=".bash_alias"
+else
+LOADED_PROFILES="${LOADED_PROFILES}\n.bash_alias"
+fi
+
+loadedprofiles() {
+    if [[ $GRID == 'SB' ]]; then
+        LOADED_PROFILES="${LOADED_PROFILES}\n/programs/sbgrid.shrc"
+    fi
+    echo $LOADED_PROFILES
+}
+
+
+tm() {
+    tmux has-session -t $1 2>/dev/null;
+    if [ $? != 0 ]; then
+
+		if test $# -gt 1; then 
+			tmuxinator s $2 -n $1
+		else
+			tmuxinator s $1 -n $1
+		fi
+        
+     else    
+        tmux attach -t $1
+    fi
+}
+
+alias preview="open -a /System/Applications/Preview.app"
+alias ink="open -a /Applications/Inkscape.app"
+alias gimp="open -a /Applications/Gimp.app"
+#alias rstudio="open -a /Applications/RStudio.app"
+#alias aff="open -a /Applications/Affinity\ Designer.app"
+alias bbedit="open -a /Applications/BBEdit.app"
+#alias profile="nano ~/.bash_profile"
+#alias zprofile="nano ~/.zshrc"
+alias zsource="source ~/.zshrc"
+alias paths="nano ~/.bash_paths"
+alias aprofile="nano ~/.bash_alias"
+#alias py="/Users/thomasnicholson/opt/anaconda3/bin/python"
+
+alias activity="open -a /Applications/Utilities/Activity\ Monitor.app/"
+alias chrome='/usr/bin/open -a "/Applications/Google Chrome.app"'
+alias excel='open -a "/Applications/Microsoft Excel.app"'
+alias vscode='open -a /Applications/Visual\ Studio\ Code.app/'
+alias vsc='open -a /Applications/Visual\ Studio\ Code.app/'
+
+alias lesss="less -S"
+alias ll="exa -alhF --sort date -r --icons"
+alias l='exa -F --icons'
+alias s='echo "using ls"; ls -F --color=auto'
+alias s='exa -F --icons'
+alias sl='exa -F --icons'
+alias lsd='exa -DF --icons'
+#alias lss='ls -lsthSF --color=auto --icons'
+alias lss='exa -alhF --sort size -r --icons'
+alias lsalias='cat ~/.bash_alias | grep alias | cut -d " " -f2- | sort'
+alias ls='exa -F --icons'
+alias lsa='exa -aF' --icons
+alias grep='grep --color=auto'
+
+
+alias cp="cp -i"
+
+alias cat="bat"
+
+alias 6tt=' mount_smbfs //thomasnicholson:0316@192.168.0.177/6TTJN /Users/thomasnicholson/sbgrid_bin/6TTJN'
+
+alias keyadd='ssh-add ~/.ssh/id_rsa'
+alias todo=todo.sh
+alias mamba=micromamba
+alias vim=nvim
+alias cd=z
+alias firefox=/Applications/Firefox.app/Contents/MacOS/firefox
