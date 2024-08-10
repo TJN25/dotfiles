@@ -1,3 +1,8 @@
+return{
+local wezterm = require 'wezterm'
+
+-- This will hold the configuration.
+local config = wezterm.config_builder()
 config.window_background_gradient = {
   -- Can be "Vertical" or "Horizontal".  Specifies the direction
   -- in which the color gradient varies.  The default is "Horizontal",
@@ -47,4 +52,5 @@ config.window_background_gradient = {
 
   -- segment_size = 11,
   -- segment_smoothness = 0.0,
+}
 }

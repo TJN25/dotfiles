@@ -8,6 +8,10 @@ local config = wezterm.config_builder()
 
 -- For example, changing the color scheme:
 config.color_scheme = 'Catppuccin Latte'
+-- require('gradient')
+
+-- require('rose-pine')
+-- config.color_scheme = 'Catppuccin Latte'
 
 -- My additions
 config.exit_behavior="Hold"
@@ -23,4 +27,7 @@ config.enable_tab_bar = false
 config.window_decorations = "RESIZE"
 
 -- and finally, return the configuration to wezterm
+
+config.leader = { key = 'a', mods = 'ALT|CTRL', timeout_milliseconds = 1000 }
+
 return config

@@ -5,12 +5,13 @@
             "separators":["."," ",": "]
         },
         "Output":{
-            "keys":["command","directory"],
-            "separators":[" # from "]
+            "keys":["command","directory","date"],
+            "separators":[" # from ", " :: "]
         },
         "Color":{
             "command":{"default":"green","commit":"red"},
             "directory":{"default":"grey"},
+            "date":{"default":"grey"},
             "SEPARATOR":{"default":"grey"}},
         "Excludes":{
             "command": {

@@ -437,7 +437,8 @@ require('lazy').setup({
     'gbprod/nord.nvim',
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      vim.cmd.colorscheme 'catppuccin-latte'
+      -- vim.cmd.colorscheme 'catppuccin-latte'
+      -- vim.cmd.colorscheme 'rose-pine'
       vim.cmd.hi 'Comment gui=none'
     end,
   },
@@ -513,9 +514,11 @@ require('lazy').setup({
   },
 })
 
+
 require('custom.auto_commands')
 function ColorMyPencils(color)
   color = color or 'catppuccin-latte'
+  -- color = color or 'rose-pine'
   vim.cmd.colorscheme(color)
 
   vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })

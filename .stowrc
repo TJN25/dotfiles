@@ -5,3 +5,4 @@
 --ignore=atuin-stored
 --ignore=tmuxinator
 --ignore=histgrep
+--ignore=sketchybar-mine
