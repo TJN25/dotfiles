@@ -6,17 +6,18 @@ coder/coder/coder
 docker
 exa
 fd
+felixkratz/formulae/borders
 felixkratz/formulae/sketchybar
 fzf
 gitleaks
 go
 hmmer
 htop
+jesseduffield/lazygit/lazygit
 joshmedeski/sesh/sesh
 jq
 koekeishiya/formulae/skhd
 koekeishiya/formulae/yabai
-libgit2@1.5
 lua
 lua-language-server
 micromamba
@@ -29,6 +30,7 @@ tcl-tk
 tmuxinator
 todo-txt
 tree
+wget
 yarn
 zsh-autosuggestions
 zsh-syntax-highlighting
