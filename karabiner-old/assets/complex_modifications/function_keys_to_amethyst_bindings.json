@@ -1,0 +1,157 @@
+{
+  "title": "Change function keys to Amethyst bindings",
+  "rules": [
+    {
+      "description": "F4 for Amethyst Fullscreen",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "f4"
+          },
+          "to": [
+            {
+              "key_code": "d",
+              "modifiers": ["option","shift"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "F5 for Amethyst 2 Pane",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "f5"
+          },
+          "to": [
+            {
+              "key_code": "0",
+              "modifiers": ["shift","option"]
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+       "description": "F3 for Amethyst Swap",
+       "manipulators": [
+         {
+           "from": {
+             "key_code": "f3"
+           },
+           "to": [
+             {
+               "key_code": "return_or_enter",
+               "modifiers": ["shift","option"]
+             }
+           ],
+           "type": "basic"
+         }
+       ]
+     },
+     {
+        "description": "F6 for Amethyst 3 pane vertical",
+        "manipulators": [
+          {
+            "from": {
+              "key_code": "f6"
+            },
+            "to": [
+              {
+                "key_code": "3",
+                "modifiers": ["shift","option"]
+              }
+            ],
+            "type": "basic"
+          }
+        ]
+      },
+     {
+        "description": "F7 to swap screen",
+        "manipulators": [
+          {
+            "from": {
+              "key_code": "f7"
+            },
+            "to": [
+              {
+                "key_code": "l",
+                "modifiers": ["shift","option","control"]
+              }
+            ],
+            "type": "basic"
+          }
+        ]
+      },
+     {
+        "description": "Shift-F3 to cycle windows",
+        "manipulators": [
+          {
+            "from": {
+              "key_code": "f3",
+			  "modifiers": {
+					"mandatory": [
+						"shift"
+					]
+				}
+            },
+            "to": [
+              {
+                "key_code": "j",
+                "modifiers": ["shift","option"]
+              }
+            ],
+            "type": "basic"
+          }
+        ]
+      },
+      {
+         "description": "Shift-F4 to cycle screeens",
+         "manipulators": [
+           {
+             "from": {
+               "key_code": "f4",
+               "modifiers": {
+                     "mandatory": [
+                         "shift"
+                     ]
+                 }
+             },
+             "to": [
+               {
+                 "key_code": "p",
+                 "modifiers": ["shift","option"]
+               }
+             ],
+             "type": "basic"
+           }
+         ]
+       },
+       {
+          "description": "Shift-F5 to cycle windows in reverse",
+          "manipulators": [
+            {
+              "from": {
+                "key_code": "f5",
+                "modifiers": {
+                      "mandatory": [
+                          "shift"
+                      ]
+                  }
+              },
+              "to": [
+                {
+                  "key_code": "k",
+                  "modifiers": ["shift","option"]
+                }
+              ],
+              "type": "basic"
+            }
+          ]
+        }
+  ]
+}
+
