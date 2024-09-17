@@ -476,6 +476,9 @@ function icon_map() {
   "WezTerm")
     icon_result=":wezterm:"
     ;;
+  "VNC Viewer")
+    icon_result=":desktop:"
+    ;;
   *)
     icon_result=":default:"
     ;;

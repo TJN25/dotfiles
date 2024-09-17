@@ -28,6 +28,8 @@ zen_on() {
              --set cpu.sys drawing=off \
              --set cpu.user drawing=off \
              --set apple drawing=off \
+             --set vnc drawing=off \
+             --set Slack drawing=off \
              --set "Tunnelblick" drawing=off 
   update_spaces "off"
 }
@@ -49,6 +51,8 @@ zen_off() {
              --set cpu.user drawing=on \
              --set cpu.top drawing=on \
              --set apple drawing=on \
+             --set Slack drawing=on \
+             --set vnc drawing=on \
              --set "Tunnelblick" drawing=on
   update_spaces "on"
 }

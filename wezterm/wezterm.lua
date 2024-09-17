@@ -30,4 +30,12 @@ config.window_decorations = "RESIZE"
 
 config.leader = { key = 'a', mods = 'ALT|CTRL', timeout_milliseconds = 1000 }
 
+config.keys = {
+    {
+        key = '^',
+        mods = 'CTRL',
+        action = wezterm.action.DisableDefaultAssignment,
+    },
+}
+
 return config

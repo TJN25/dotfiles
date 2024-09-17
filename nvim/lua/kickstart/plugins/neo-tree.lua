@@ -11,13 +11,12 @@ return {
   },
   cmd = 'Neotree',
   keys = {
-    { '\\', ':Neotree reveal<CR>', { desc = 'NeoTree reveal' } },
+    { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal' },
   },
   opts = {
     filesystem = {
       window = {
         mappings = {
-          ['P'] = { 'toggle_preview', config = { use_float = true, use_image_nvim = true } },
           ['\\'] = 'close_window',
         },
       },

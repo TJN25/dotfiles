@@ -2,6 +2,11 @@ fcount() {
 	ls $1 | wc -l
 }
 
+sbnew() {
+  mkdir -p ~/sbgrid/software-programs/x86_64-linux/$1
+  cp ~/sbgrid/template.rc ~/sbgrid/software-programs/x86_64-linux/$1/$1.rc
+}
+
 
 if [ -z $LOADED_PROFILES ]; then
 LOADED_PROFILES=".bash_alias"

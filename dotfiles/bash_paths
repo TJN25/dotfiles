@@ -8,3 +8,4 @@ export PATH=${PATH}:/Users/nicth99p/bin/c-basics/:/Users/nicth99p/bin/external_t
 export PATH=${PATH}:/Applications/CMake.app/Contents/bin/
 export PATH=${PATH}:/opt/homebrew/bin
 export PATH=${PATH}:/Users/nicth99p/go/bin
+export PATH=${PATH}:/Users/nicth99p/bin/third-party/glow
