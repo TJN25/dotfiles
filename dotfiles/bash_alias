@@ -22,7 +22,7 @@ loadedprofiles() {
 }
 
 hs() {
-        cat ~/.logs/*.log | histgrep s $@
+        histgrep s $@
     }
 
 tm() {

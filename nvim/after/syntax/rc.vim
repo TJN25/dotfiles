@@ -12,9 +12,9 @@ syn match VariableKey   /^#.*/
 " syntax match rcPath   #/\+\s#
 " syn region rcPath		start=+/+ skip=+\\\\\|\\"+ end=+\n+ contains=rcSpecial
 
-syn keyword SetGroup setEnv setGrid setVersion testSane setAlias setDep fileRead runDeploy unsetEnv 
+syn keyword SetGroup setEnv setGrid setVersion testSane setAlias setDep fileRead runDeploy unsetEnv testDev
 syn keyword ConditionalsGroup ifSet elseTest endTest osGt osLt ifVersion elseIf fileTest
-syn keyword VariablesGroup SB_PATH SBCAP_PATH __SBCAP LD_LIBRARY_PATH
+syn keyword VariablesGroup SB_PATH SBCAP_PATH __SBCAP LD_LIBRARY_PATH exists version custom
 syn keyword CommonNames verdir appdir bin miniconda envs mamba extlib _extlib capsules python
 
 syntax match UPPERCASE /[A-Z]/

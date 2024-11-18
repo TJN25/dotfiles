@@ -1,0 +1,14 @@
+# histgrep.toml
+
+[default_logs]
+directory = "~/.logs/"
+file_pattern = "zsh-history-*.log"
+
+[search]
+case_sensitive = false
+default_name = "simple"
+
+[display]
+color_enabled = true
+pager_enabled = false
+vim_exit = true
