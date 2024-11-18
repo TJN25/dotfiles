@@ -22,6 +22,7 @@ yabai -m rule --add app="^Raycast$" manage=off
 yabai -m rule --add app="^1Password$" manage=off
 yabai -m rule --add app="^Bitwarden$" manage=off
 yabai -m rule --add app="^Finder$" manage=off
+yabai -m rule --add app="^Screen Studio$" manage=off
 
 # New window spawns to the right if vertical split, or bottom if horizontal split
 yabai -m config window_placement second_child

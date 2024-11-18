@@ -59,6 +59,7 @@ shift + ctrl + alt - m : yabai -m config top_padding 50
 ## Applications
 
 # alt - i : open -2 /Applications/Alacritty.app/
+# alt - w : open -na /Applications/WezTerm.app/
 # alt - o : open -a /Applications/Obsidian.app/
 # alt - b : open -a /Applications/Firefox.app/
 # ctrl + alt - m : /Applications/Firefox.app/Contents/MacOS/firefox --new-instance -P "Minimal Window"
