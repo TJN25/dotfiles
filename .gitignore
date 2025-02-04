@@ -2,9 +2,11 @@ DS_Store
 .DS_Store
 old-nvim/
 raycast/
+raycast/*
 iterm2/
 rstudio/
 sketchybar-mine/
 op/
 powerlevel10k/
 nvim-old/
+
