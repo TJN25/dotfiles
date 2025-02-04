@@ -15,8 +15,8 @@ ctrl + alt - j : yabai -m window --warp south
 
 alt - s : yabai -m display --focus west
 alt - g : yabai -m display --focus east
-ctrl + alt - s : yabai -m window --display west; yabai -m display --focus west
-ctrl + alt - g : yabai -m window --display east; yabai -m display --focus east
+# ctrl + alt - s : yabai -m window --display west; yabai -m display --focus west
+# ctrl + alt - g : yabai -m window --display east; yabai -m display --focus east
 
 shift + alt - r : yabai -m space --rotate 270
 shift + alt - y : yabai -m space --mirror y-axis

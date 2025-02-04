@@ -22,7 +22,7 @@ do
     ;;
     "2") SPACE_NAME="sbg"
     ;;
-    "3") SPACE_NAME="obs"
+    "3") SPACE_NAME="vnc"
     ;;
     "4") SPACE_NAME="com"
     ;;
