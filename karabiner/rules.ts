@@ -62,11 +62,15 @@ const rules: KarabinerRules[] = [
     // b = "B"rowse
     b: {
       t: open("https://twitter.com"),
+      s: open("https://docs.google.com/document/d/1q51yMLCkZGXBi1tnZUQqgi5BBl34jwGkYi9fWKNkqqc/"),
+      l: open("https://music.youtube.com/"),
+      k: open("https://concept.otago.ac.nz/"),
       // Quarterly "P"lan
       g: open("https://github.com/tjn25"),
       y: open("https://www.youtube.com"),
       f: open("https://facebook.com"),
       r: open("https://reddit.com"),
+      m: open("https://www.messenger.com/"),
     },
     // o = "Open" applications
     o: {
@@ -79,18 +83,15 @@ const rules: KarabinerRules[] = [
       n: app("Notion"),
       i: app("Obsidian"),
       t: app("Terminal"),
-      // Open todo list managed via *H*ypersonic
+      // Open Notion projects 
       h: open(
-        "notion://www.notion.so/stellatehq/7b33b924746647499d906c55f89d5026"
+        "notion://www.notion.so/Projects-Task-e3df002f363e4ef19be22806e3a299fe?pvs=32"
       ),
       z: app("zoom.us"),
-      // "M"arkdown (Reflect.app)
       d: app("Finder"),
       f: app("Firefox"),
-      // "i"Message
       p: app("Affinity Publisher 2"),
       a: app("Affinity Designer 2"),
-      // "W"hatsApp has been replaced by Texts
       w: app("WezTerm"),
     },
 
@@ -304,12 +305,22 @@ const rules: KarabinerRules[] = [
       e: open("raycast://extensions/raycast/emoji-symbols/search-emoji-symbols"),
       s: open("raycast://ai-commands/fix-spelling-and-grammar"),
       p: open("raycast://extensions/raycast/raycast/confetti"),
+      k: open("raycast://script-commands/karabiner-shortcuts"),
       a: open("raycast://extensions/raycast/raycast-ai/ai-chat"),
       t: open("raycast://extensions/joshmedeski/sesh/cmd-connect"),
       m: open("raycast://extensions/raycast/navigation/search-menu-items"),
       h: open("raycast://extensions/raycast/clipboard-history/clipboard-history"),
       1: open("raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"),
       2: open("raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-2"),
+    },
+    a: {
+      o: open("raycast://extensions/raycast/raycast-ai/search-ai-chat-presets"),
+      i: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22C7D5E429-BF21-42A4-A5F7-840FD5640247%22%7D"),
+      c: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22B91D7FC5-5F7D-48B9-86FA-270EC19485FC%22%7D"),
+      b: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%224F54E4D6-34A8-4CD4-9CCB-F9ECD3FBACD1%22%7D"),
+      p: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22E514F5D6-1C09-4CD0-8485-B76D66F5B3E3%22%7D"),
+      s: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%229E8F60D0-8973-4ADA-9267-5F742EA3B22C%22%7D"),
+      t: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%227993EB06-6BA0-4074-B18A-30D9B47EC0C9%22%7D"),
     },
   }),
 ];
