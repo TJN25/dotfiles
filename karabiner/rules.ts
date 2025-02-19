@@ -2,6 +2,10 @@ import fs from "fs";
 import { KarabinerRules } from "./types";
 import { createHyperSubLayers, app, open, rectangle, shell } from "./utils";
 
+//const openWithMinimal = (url: string) => open(`-a Firefox --args -P "Minimal Window" ${url}`);
+//const openWithMinimal = (url: string) => `-a Firefox --args -P "Minimal Window" ${url}`;
+// NEED TO CHANGE CONTROL TO OPTION BECAUSE OF MACOS SETTING SWAPSING THE KEYS
+
 const rules: KarabinerRules[] = [
   // Define the Hyper key itself
   {
@@ -38,6 +42,37 @@ const rules: KarabinerRules[] = [
         ],
         type: "basic",
       },
+      {
+        description: "Enter Key -> Hyper Key",
+        from: {
+          key_code: "return_or_enter",
+          modifiers: {
+            optional: ["any"],
+          },
+        },
+        to: [
+          {
+            set_variable: {
+              name: "hyper",
+              value: 1,
+            },
+          },
+        ],
+        to_after_key_up: [
+          {
+            set_variable: {
+              name: "hyper",
+              value: 0,
+            },
+          },
+        ],
+        to_if_alone: [
+          {
+            key_code: "return_or_enter",
+          },
+        ],
+        type: "basic",
+      },
       //      {
       //        type: "basic",
       //        description: "Disable CMD + Tab to force Hyper Key usage",
@@ -59,10 +94,49 @@ const rules: KarabinerRules[] = [
     spacebar: open(
       "raycast://extensions/stellate/mxstbr-commands/create-notion-todo"
     ),
+    k: {
+
+      a: {
+        description: "Open bracket",
+        to: [
+          {
+            key_code: "open_bracket"
+          },
+        ],
+      },
+      s: {
+        description: "Close bracket",
+        to: [
+          {
+            key_code: "close_bracket"
+          },
+        ],
+      },
+      d: {
+        description: "Open bracket",
+        to: [
+          {
+            key_code: "open_bracket",
+            modifiers: ["shift"]
+          },
+        ],
+      },
+      f: {
+        description: "Close brace",
+        to: [
+          {
+            key_code: "close_bracket",
+            modifiers: ["shift"]
+          },
+        ],
+      },
+    },
+
     // b = "B"rowse
     b: {
       t: open("https://twitter.com"),
       s: open("https://docs.google.com/document/d/1q51yMLCkZGXBi1tnZUQqgi5BBl34jwGkYi9fWKNkqqc/"),
+      //l: open("https://music.youtube.com/"),
       l: open("https://music.youtube.com/"),
       k: open("https://concept.otago.ac.nz/"),
       // Quarterly "P"lan
@@ -210,7 +284,7 @@ const rules: KarabinerRules[] = [
         to: [
           {
             key_code: "q",
-            modifiers: ["right_control", "right_command"],
+            modifiers: ["right_option", "right_command"],
           },
         ],
       },
