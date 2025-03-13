@@ -60,17 +60,17 @@ alias vscode='open -a /Applications/Visual\ Studio\ Code.app/'
 alias vsc='open -a /Applications/Visual\ Studio\ Code.app/'
 
 alias lesss="less -S"
-alias ll="exa -alhF --sort date -r --icons"
-alias l='exa -F --icons'
+alias ll="eza -alhF --sort date -r --icons --color=auto"
+alias l='eza -F --icons'
 alias s='echo "using ls"; ls -F --color=auto'
-alias s='exa -F --icons'
-alias sl='exa -F --icons'
-alias lsd='exa -DF --icons'
+alias s='eza -F --icons'
+alias sl='eza -F --icons'
+alias lsd='eza -DF --icons'
 #alias lss='ls -lsthSF --color=auto --icons'
-alias lss='exa -alhF --sort size -r --icons'
+alias lss='eza -alhF --sort size -r --icons'
 alias lsalias='cat ~/.bash_alias | grep alias | cut -d " " -f2- | sort'
-alias ls='exa -F --icons'
-alias lsa='exa -aF' --icons
+alias ls='eza -F --icons --color=auto'
+alias lsa='eza -aF' --icons
 alias grep='grep --color=auto'
 
 
@@ -82,7 +82,7 @@ alias 6tt=' mount_smbfs //thomasnicholson:0316@192.168.0.177/6TTJN /Users/thomas
 
 alias keyadd='ssh-add ~/.ssh/id_rsa'
 alias todo=todo.sh
-alias mamba=micromamba
+#alias mamba=micromamba
 alias vim=nvim
 alias cd=z
 alias firefox=/Applications/Firefox.app/Contents/MacOS/firefox

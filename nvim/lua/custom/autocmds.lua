@@ -11,3 +11,22 @@ vim.api.nvim_create_autocmd('TextYankPost', {
     vim.highlight.on_yank()
   end,
 })
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'rc',
+  callback = function()
+    local docs = {
+      setVersion = 'Defines version variable and alternatives',
+      setEnv = 'Sets environment variable',
+      setGrid = 'Defines grid membership',
+      -- Add more as needed
+    }
+
+    vim.keymap.set('n', '<Leader>K', function()
+      local word = vim.fn.expand '<cword>'
+      if docs[word] then
+        vim.api.nvim_echo({ { docs[word], 'Normal' } }, false, {})
+      end
+    end, { buffer = true })
+  end,
+})
