@@ -12,25 +12,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   end,
 })
 
--- vim.api.nvim_create_autocmd('FileType', {
---   pattern = 'rc',
---   callback = function()
---     local docs = {
---       setVersion = 'Defines version variable and alternatives',
---       setEnv = 'Sets environment variable',
---       setGrid = 'Defines grid membership',
---       -- Add more as needed
---     }
---
---     vim.keymap.set('n', '<Leader>K', function()
---       local word = vim.fn.expand '<cword>'
---       if docs[word] then
---         vim.api.nvim_echo({ { docs[word], 'Normal' } }, false, {})
---       end
---     end, { buffer = true })
---   end,
--- })
-
 vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '*.rc' },
   callback = function()
@@ -46,7 +27,6 @@ vim.api.nvim_create_autocmd('FileType', {
       setEnv = 'Sets environment variable',
       setGrid = 'Defines grid membership',
       addEnv = 'Adds to a defined environment variable (Args: var, value)',
-      setEnv = 'Defines environment variable (Args: var, value)',
       unsetEnv = 'Removes environment variable (Arg: var)',
       setName = "Defines appname when can't be determined programmatically (Arg: name)",
       customVersion = 'Like setVersion but with custom naming (Args: var, value)',
@@ -110,6 +90,7 @@ vim.api.nvim_create_autocmd('FileType', {
       CUDA_PATH = 'CUDA installation directory',
     }
 
+    -- Documentation popup on <Leader>K
     vim.keymap.set('n', '<Leader>K', function()
       local word = vim.fn.expand '<cword>'
       if docs[word] then
@@ -138,5 +119,91 @@ vim.api.nvim_create_autocmd('FileType', {
         end, 3000) -- Close after 3 seconds
       end
     end, { buffer = true })
+
+    -- Set up completion source
+    local keywords = {}
+    for keyword, _ in pairs(docs) do
+      table.insert(keywords, keyword)
+    end
+
+    -- Configure omnifunc for completion
+    vim.bo.omnifunc = 'v:lua.RcComplete'
+
+    -- Define the completion function
+    _G.RcComplete = function(findstart, base)
+      if findstart == 1 then
+        -- Locate the start of the word
+        local line = vim.api.nvim_get_current_line()
+        local col = vim.api.nvim_win_get_cursor(0)[2]
+        local start = col
+        while start > 0 and string.match(string.sub(line, start, start), '[%w_]') do
+          start = start - 1
+        end
+        return start
+      else
+        -- Find matching keywords
+        local matches = {}
+        for _, keyword in ipairs(keywords) do
+          if string.sub(keyword, 1, #base) == base then
+            table.insert(matches, {
+              word = keyword,
+              menu = docs[keyword],
+              kind = 'f',
+            })
+          end
+        end
+        return matches
+      end
+    end
+
+    -- Set up nvim-cmp source (if using nvim-cmp)
+    if pcall(require, 'cmp') then
+      local cmp = require 'cmp'
+      local source = {}
+
+      source.new = function()
+        return setmetatable({}, { __index = source })
+      end
+
+      source.get_trigger_characters = function()
+        return {}
+      end
+
+      source.get_keyword_pattern = function()
+        return [[\w\+]]
+      end
+
+      source.complete = function(self, request, callback)
+        local items = {}
+        local input = string.sub(request.context.cursor_before_line, request.offset)
+
+        for keyword, description in pairs(docs) do
+          if keyword:find(input, 1, true) == 1 then
+            table.insert(items, {
+              label = keyword,
+              documentation = description,
+              kind = cmp.lsp.CompletionItemKind.Function,
+            })
+          end
+        end
+
+        callback { items = items, isIncomplete = false }
+      end
+
+      cmp.register_source('rc_language', source.new())
+
+      -- Configure the source for rc files
+      cmp.setup.filetype('rc', {
+        sources = cmp.config.sources {
+          { name = 'rc_language' },
+          { name = 'buffer' },
+        },
+      })
+    end
+
+    -- Set up basic completion with Ctrl-X Ctrl-O
+    vim.keymap.set('i', '<C-x><C-o>', function()
+      vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes('<C-x><C-o>', true, true, true), 'n', true)
+    end, { buffer = true, desc = 'Trigger omnifunc completion' })
   end,
 })

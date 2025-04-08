@@ -33,7 +33,7 @@ battery_lock=(
   click_script="pmset displaysleepnow; $POPUP_OFF"
 )
 
-sketchybar --add item battery e      \
+sketchybar --add item battery r      \
            --set battery "${battery[@]}" \
            --add item battery.prefs popup.battery     \
            --set battery.prefs "${battery_prefs[@]}"       \

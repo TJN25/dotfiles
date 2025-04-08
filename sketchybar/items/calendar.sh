@@ -20,6 +20,6 @@ calendar=(
   click_script="$PLUGIN_DIR/zen.sh"
 )
 
-sketchybar --add item calendar q       \
+sketchybar --add item calendar e       \
            --set calendar "${calendar[@]}" \
            --subscribe calendar system_woke

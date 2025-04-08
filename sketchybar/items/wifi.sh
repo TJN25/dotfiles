@@ -10,6 +10,6 @@ wifi=(
   script="$PLUGIN_DIR/wifi.sh"
 )
 
-sketchybar --add item wifi e \
+sketchybar --add item wifi r \
            --set wifi "${wifi[@]}" \
            --subscribe wifi wifi_change mouse.clicked

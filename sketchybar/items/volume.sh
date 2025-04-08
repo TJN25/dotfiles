@@ -34,12 +34,12 @@ status_bracket=(
   background.height=33
 )
 
-sketchybar --add slider volume e            \
+sketchybar --add slider volume r            \
            --set volume "${volume_slider[@]}"   \
            --subscribe volume volume_change     \
                               mouse.clicked     \
                                                 \
-           --add item volume_icon e         \
+           --add item volume_icon r         \
            --set volume_icon "${volume_icon[@]}"
 
 sketchybar --add bracket status volume_icon battery wifi \

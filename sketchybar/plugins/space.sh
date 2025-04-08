@@ -20,8 +20,8 @@ set_space_label() {
 }
 
 mouse_clicked() {
-  if [ "$BUTTON" = "right" ]; then
-    yabai -m space --destroy $SID
+    if [ "$BUTTON" = "right" ]; then
+    aerospace workspace remove
   else
     if [ "$MODIFIER" = "shift" ]; then
       SPACE_LABEL="$(osascript -e "return (text returned of (display dialog \"Give a name to space $NAME:\" default answer \"\" with icon note buttons {\"Cancel\", \"Continue\"} default button \"Continue\"))")"
@@ -33,13 +33,31 @@ mouse_clicked() {
         fi
       fi
     else
-      yabai -m space --focus $SID 2>/dev/null
+      aerospace workspace $SID
     fi
   fi
 }
 
 case "$SENDER" in
   "mouse.clicked") mouse_clicked
+  ;;
+  "aerospace_workspace_change") 
+    # Get current workspace from the event info
+    CURRENT_WORKSPACE="$CURRENT"
+    
+    # Update all space items
+    for i in {1..12}; do
+      # Set SELECTED based on whether this space matches the current workspace
+      if [ "$i" = "$CURRENT_WORKSPACE" ]; then
+        SELECTED="true"
+      else
+        SELECTED="false"
+      fi
+      
+      # Call update with the space name and SELECTED value
+      NAME="space.$i"
+      update
+    done
   ;;
   *) update
   ;;
