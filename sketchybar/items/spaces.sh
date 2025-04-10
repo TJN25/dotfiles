@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for sid in $(aerospace list-workspaces --all | grep -E '^[1-9]$'); do
+for sid in $(aerospace list-workspaces --all); do
 
       case "$sid" in
       "1") SPACE_NAME="dev"

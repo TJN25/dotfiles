@@ -1,14 +1,15 @@
 #!/bin/bash
 
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10" "11" "12")
+SPACE_ICONS=($(aerospace list-workspaces --all))
 
 sid=0
 update_spaces() {
 for i in "${!SPACE_ICONS[@]}"
 do
   sid=$(($i+1))
-  sketchybar --set space.$sid drawing="$1"
+  space=${SPACE_ICONS[$i]}
+  sketchybar --set space.$space drawing="$1"
 done
 }
 

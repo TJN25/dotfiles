@@ -20,6 +20,7 @@ else
 fi
 
 
+process_space () {
 space=$1
 apps=$(aerospace list-windows --workspace $space | cut -d '|' -f 2)
 icon_strip=" "
@@ -33,46 +34,44 @@ if [ "${apps}" != "" ]; then
     fi
   done <<< "${apps}"
   sketchybar --animate sin 10 --set space.$space label="$icon_strip" \
+                                                  icon.drawing=on \
                                                   label.y_offset=-1 \
                                                   label.padding_right=20 \
                                                   label.color=$ICON_COLOR \
                                                   icon.color=$WHITE
 else
-  icon_strip=" 􀝶"
-  sketchybar --animate sin 10 --set space.$space \
-    label="$icon_strip" \
-    label.y_offset=0 \
-    label.padding_right=15 \
-    label.color=$GREY \
-    icon.color=$GREY
+  if [ "$space" = "$(aerospace list-workspaces --focused)" ]; then
+    icon_strip=" 􀝶"
+    sketchybar --animate sin 10 --set space.$space \
+      icon.drawing=on \
+      label="$icon_strip" \
+      label.y_offset=0 \
+      label.padding_right=15 \
+      label.color=$GREY \
+      icon.color=$GREY
+  else
+    sketchybar --animate sin 10 --set space.$space \
+        background.drawing=off \
+        icon.drawing=off \
+        padding_left=0 \
+        padding_right=0
+    # sketchybar --set space.$space drawing=off
+  fi
 fi
+}
 
+process_space $1
 
-
-# for sid in $(aerospace list-workspaces --all | grep -E '^[1-9]$'); do
-# space=$sid
-# windows=$(aerospace list-windows --workspace $space | cut -d '|' -f 2)
+# SPACE_ICONS=($(aerospace list-workspaces --all))
 #
-# icon_strip=" "
-# if [ -n "$windows" ]; then
-#   echo "Current windows: $windows" >> /tmp/sketchybar_trigger_debug.log
-#   while read -r window; do
-#     icon_strip+=" $($CONFIG_DIR/plugins/icon_map.sh "$window")"
-#     echo "Current window: $window" >> /tmp/sketchybar_trigger_debug.log
-#   done <<< "$windows"
-#
-#   sketchybar --animate sin 10 --set space.$current_workspace label="$icon_strip" \
-#                                                 label.y_offset=-1 \
-#                                                 label.padding_right=20 \
-#                                                 label.color=$ICON_COLOR \
-#                                                 icon.color=$WHITE
-# else
-#   icon_strip=" 􀝶"
-#   sketchybar --animate sin 10 --set space.$current_workspace \
-#     label="$icon_strip" \
-#     label.y_offset=0 \
-#     label.padding_right=15 \
-#     label.color=$GREY \
-#     icon.color=$GREY
-# fi
+# for i in "${!SPACE_ICONS[@]}"
+# do
+#   space=${SPACE_ICONS[$i]}
+#   process_space $space
+#   if [ "$space" = "$(aerospace list-workspaces --focused)" ]; then
+#     sketchybar --set space.$space background.color=$ORANGE icon.color=0xFF000000
+#   else
+#     sketchybar --set space.$space background.color=$BACKGROUND_1 icon.color=$WHITE
+#   fi
 # done
+
