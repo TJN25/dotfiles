@@ -4,7 +4,7 @@ export EDITOR='nvim'
 export SBGRID_USER=nicholson
 export XDG_CONFIG_HOME=~/.config
 export CONFIG_DIR=~/.config
-export BAT_THEME="gruvbox-light"
+export BAT_THEME="gruvbox-dark"
 
 export FZF_DEFAULT_COMMAND="fd --hidden  --strip-cwd-prefix --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
