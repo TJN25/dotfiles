@@ -1,16 +1,16 @@
 --[[
 
 =====================================================================
-==================== READ THIS BEFORE CONTINUING ====================
+==================== read this before continuing ====================
 =====================================================================
 ========                                    .-----.          ========
 ========         .----------------------.   | === |          ========
 ========         |.-""""""""""""""""""-.|   |-----|          ========
 ========         ||                    ||   | === |          ========
-========         ||   KICKSTART.NVIM   ||   |-----|          ========
+========         ||   kickstart.nvim   ||   |-----|          ========
 ========         ||                    ||   | === |          ========
 ========         ||                    ||   |-----|          ========
-========         ||:Tutor              ||   |:::::|          ========
+========         ||:tutor              ||   |:::::|          ========
 ========         |'-..................-'|   |____o|          ========
 ========         `"")----------------(""`   ___________      ========
 ========        /::::::::::|  |::::::::::\  \ no mouse \     ========
@@ -20,113 +20,113 @@
 =====================================================================
 =====================================================================
 
-What is Kickstart?
+what is kickstart?
 
-  Kickstart.nvim is *not* a distribution.
+  kickstart.nvim is *not* a distribution.
 
-  Kickstart.nvim is a starting point for your own configuration.
-    The goal is that you can read every line of code, top-to-bottom, understand
+  kickstart.nvim is a starting point for your own configuration.
+    the goal is that you can read every line of code, top-to-bottom, understand
     what your configuration is doing, and modify it to suit your needs.
 
-    Once you've done that, you can start exploring, configuring and tinkering to
-    make Neovim your own! That might mean leaving Kickstart just the way it is for a while
-    or immediately breaking it into modular pieces. It's up to you!
+    once you've done that, you can start exploring, configuring and tinkering to
+    make neovim your own! that might mean leaving kickstart just the way it is for a while
+    or immediately breaking it into modular pieces. it's up to you!
 
-    If you don't know anything about Lua, I recommend taking some time to read through
-    a guide. One possible example which will only take 10-15 minutes:
+    if you don't know anything about lua, i recommend taking some time to read through
+    a guide. one possible example which will only take 10-15 minutes:
       - https://learnxinyminutes.com/docs/lua/
 
-    After understanding a bit more about Lua, you can use `:help lua-guide` as a
-    reference for how Neovim integrates Lua.
+    after understanding a bit more about lua, you can use `:help lua-guide` as a
+    reference for how neovim integrates lua.
     - :help lua-guide
-    - (or HTML version): https://neovim.io/doc/user/lua-guide.html
+    - (or html version): https://neovim.io/doc/user/lua-guide.html
 
-Kickstart Guide:
+kickstart guide:
 
-  Next, run AND READ `:help`.
-    This will open up a help window with some basic information
+  next, run and read `:help`.
+    this will open up a help window with some basic information
     about reading, navigating and searching the builtin help documentation.
 
-    This should be the first place you go to look when you're stuck or confused
-    with something. It's one of my favorite Neovim features.
+    this should be the first place you go to look when you're stuck or confused
+    with something. it's one of my favorite neovim features.
 
-    MOST IMPORTANTLY, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
+    most importantly, we provide a keymap "<space>sh" to [s]earch the [h]elp documentation,
     which is very useful when you're not exactly sure of what you're looking for.
 
-If you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
+if you experience any errors while trying to install kickstart, run `:checkhealth` for more info.
 
-P.S. You can delete this when you're done too. It's your config now! :)
+p.s. you can delete this when you're done too. it's your config now! :)
 --]]
 
 require 'custom/settings'
 require 'custom/keybinds'
 require 'custom/autocmds'
 
--- [[ Install `lazy.nvim` plugin manager ]]
---    See `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
+-- [[ install `lazy.nvim` plugin manager ]]
+--    see `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info
 local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 if not vim.uv.fs_stat(lazypath) then
   local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
   local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
   if vim.v.shell_error ~= 0 then
-    error('Error cloning lazy.nvim:\n' .. out)
+    error('error cloning lazy.nvim:\n' .. out)
   end
 end ---@diagnostic disable-next-line: undefined-field
 vim.opt.rtp:prepend(lazypath)
 
--- NOTE: Here is where you install your plugins.
+-- note: here is where you install your plugins.
 require('lazy').setup({
   --
-  -- NOTE: Plugins can also be added by using a table,
+  -- note: plugins can also be added by using a table,
   -- with the first argument being the link and the following
   -- keys can be used to configure plugin behavior/loading/etc.
 
-  -- See `:help gitsigns` to understand what the configuration keys do
+  -- see `:help gitsigns` to understand what the configuration keys do
 
-  -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
+  -- note: plugins can also be configured to run lua code when they are loaded.
   --
-  -- This is often very useful to both group configuration, as well as handle
+  -- this is often very useful to both group configuration, as well as handle
   -- lazy loading plugins that don't need to be loaded immediately at startup.
   --
-  -- For example, in the following configuration, we use:
-  --  event = 'VimEnter'
+  -- for example, in the following configuration, we use:
+  --  event = 'vimenter'
   --
-  -- which loads which-key before all the UI elements are loaded. Events can be
+  -- which loads which-key before all the ui elements are loaded. events can be
   -- normal autocommands events (`:help autocmd-events`).
   --
-  -- Then, because we use the `config` key, the configuration only runs
+  -- then, because we use the `config` key, the configuration only runs
   -- after the plugin has been loaded:
   --  config = function() ... end
   --
-  -- NOTE: Plugins can specify dependencies.
+  -- note: plugins can specify dependencies.
   --
-  -- The dependencies are proper plugin specifications as well - anything
+  -- the dependencies are proper plugin specifications as well - anything
   -- you do for a plugin at the top level, you can do for a dependency.
   --
-  -- Use the `dependencies` key to specify the dependencies of a particular plugin
+  -- use the `dependencies` key to specify the dependencies of a particular plugin
 
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-sleuth', -- detect tabstop and shiftwidth automatically
   require 'main/gitsigns',
   require 'main/which-key',
   require 'main/telescope',
 
-  -- LSP Plugins
+  -- lsp plugins
   require 'main/lsp/lazydev',
   require 'main/lsp/nvim-lspconfig',
-  { 'Bilal2453/luvit-meta', lazy = true },
+  { 'bilal2453/luvit-meta', lazy = true },
   require 'main/lsp/conform',
   -- require 'main/lsp/nvim-cmp',
-  { -- Autocompletion
+  { -- autocompletion
     'hrsh7th/nvim-cmp',
-    event = 'InsertEnter',
+    event = 'insertenter',
     dependencies = {
-      -- Snippet Engine & its associated nvim-cmp source
+      -- snippet engine & its associated nvim-cmp source
       {
-        'L3MON4D3/LuaSnip',
+        'l3mon4d3/luasnip',
         build = (function()
-          -- Build Step is needed for regex support in snippets.
-          -- This step is not supported in many windows environments.
-          -- Remove the below condition to re-enable on windows.
+          -- build step is needed for regex support in snippets.
+          -- this step is not supported in many windows environments.
+          -- remove the below condition to re-enable on windows.
           if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
             return
           end
@@ -134,7 +134,7 @@ require('lazy').setup({
         end)(),
         dependencies = {
           -- `friendly-snippets` contains a variety of premade snippets.
-          --    See the README about individual language/framework/plugin snippets:
+          --    see the readme about individual language/framework/plugin snippets:
           --    https://github.com/rafamadriz/friendly-snippets
           -- {
           --   'rafamadriz/friendly-snippets',
@@ -146,14 +146,14 @@ require('lazy').setup({
       },
       'saadparwaiz1/cmp_luasnip',
 
-      -- Adds other completion capabilities.
-      --  nvim-cmp does not ship with all sources by default. They are split
+      -- adds other completion capabilities.
+      --  nvim-cmp does not ship with all sources by default. they are split
       --  into multiple repos for maintenance purposes.
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
     },
     config = function()
-      -- See `:help cmp`
+      -- see `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
@@ -166,62 +166,62 @@ require('lazy').setup({
         },
         completion = { completeopt = 'menu,menuone,noinsert' },
 
-        -- For an understanding of why these mappings were
+        -- for an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
         --
-        -- No, but seriously. Please read `:help ins-completion`, it is really good!
+        -- no, but seriously. please read `:help ins-completion`, it is really good!
         mapping = cmp.mapping.preset.insert {
-          -- Select the [n]ext item
-          ['<C-n>'] = cmp.mapping.select_next_item(),
-          -- Select the [p]revious item
-          ['<C-p>'] = cmp.mapping.select_prev_item(),
+          -- select the [n]ext item
+          ['<c-n>'] = cmp.mapping.select_next_item(),
+          -- select the [p]revious item
+          ['<c-p>'] = cmp.mapping.select_prev_item(),
 
-          -- Scroll the documentation window [b]ack / [f]orward
-          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          -- scroll the documentation window [b]ack / [f]orward
+          ['<c-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<c-f>'] = cmp.mapping.scroll_docs(4),
 
-          -- Accept ([y]es) the completion.
-          --  This will auto-import if your LSP supports it.
-          --  This will expand snippets if the LSP sent a snippet.
-          ['<C-y>'] = cmp.mapping.confirm { select = true },
+          -- accept ([y]es) the completion.
+          --  this will auto-import if your lsp supports it.
+          --  this will expand snippets if the lsp sent a snippet.
+          ['<c-y>'] = cmp.mapping.confirm { select = true },
 
-          -- If you prefer more traditional completion keymaps,
+          -- if you prefer more traditional completion keymaps,
           -- you can uncomment the following lines
-          ['<CR>'] = cmp.mapping.confirm { select = true },
-          ['<Tab>'] = cmp.mapping.select_next_item(),
-          ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+          -- ['<cr>'] = cmp.mapping.confirm { select = true },
+          ['<tab>'] = cmp.mapping.select_next_item(),
+          ['<s-tab>'] = cmp.mapping.select_prev_item(),
 
-          -- Manually trigger a completion from nvim-cmp.
-          --  Generally you don't need this, because nvim-cmp will display
+          -- manually trigger a completion from nvim-cmp.
+          --  generally you don't need this, because nvim-cmp will display
           --  completions whenever it has completion options available.
-          ['<C-Space>'] = cmp.mapping.complete {},
+          ['<c-space>'] = cmp.mapping.complete {},
 
-          -- Think of <c-l> as moving to the right of your snippet expansion.
-          --  So if you have a snippet that's like:
+          -- think of <c-l> as moving to the right of your snippet expansion.
+          --  so if you have a snippet that's like:
           --  function $name($args)
           --    $body
           --  end
           --
           -- <c-l> will move you to the right of each of the expansion locations.
           -- <c-h> is similar, except moving you backwards.
-          ['<C-l>'] = cmp.mapping(function()
+          ['<c-l>'] = cmp.mapping(function()
             if luasnip.expand_or_locally_jumpable() then
               luasnip.expand_or_jump()
             end
           end, { 'i', 's' }),
-          ['<C-h>'] = cmp.mapping(function()
+          ['<c-h>'] = cmp.mapping(function()
             if luasnip.locally_jumpable(-1) then
               luasnip.jump(-1)
             end
           end, { 'i', 's' }),
 
-          -- For more advanced Luasnip keymaps (e.g. selecting choice nodes, expansion) see:
-          --    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
+          -- for more advanced luasnip keymaps (e.g. selecting choice nodes, expansion) see:
+          --    https://github.com/l3mon4d3/luasnip?tab=readme-ov-file#keymaps
         },
         sources = {
           {
             name = 'lazydev',
-            -- set group index to 0 to skip loading LuaLS completions as lazydev recommends it
+            -- set group index to 0 to skip loading luals completions as lazydev recommends it
             group_index = 0,
           },
           { name = 'nvim_lsp' },
@@ -248,8 +248,8 @@ require('lazy').setup({
   { import = 'custom.plugins' },
 }, {
   ui = {
-    -- If you are using a Nerd Font: set icons to an empty table which will use the
-    -- default lazy.nvim defined Nerd Font icons, otherwise define a unicode icons table
+    -- if you are using a nerd font: set icons to an empty table which will use the
+    -- default lazy.nvim defined nerd font icons, otherwise define a unicode icons table
     icons = vim.g.have_nerd_font and {} or {
       cmd = '⌘',
       config = '🛠',
@@ -268,16 +268,16 @@ require('lazy').setup({
   },
 })
 
-function ColorMyPencils(color)
-  color = color or 'catppuccin-mocha'
+function colormypencils(color)
+  color = color or 'catppuccin-latte'
   -- color = color or 'rose-pine'
   vim.cmd.colorscheme(color)
 
-  vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+  vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
 end
 
-ColorMyPencils()
+colormypencils()
 
--- The line beneath this is called `modeline`. See `:help modeline`
+-- the line beneath this is called `modeline`. see `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

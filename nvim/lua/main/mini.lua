@@ -1,52 +1,52 @@
-return { -- Collection of various small independent plugins/modules
+return { -- collection of various small independent plugins/modules
   'echasnovski/mini.nvim',
   config = function()
-    -- Better Around/Inside textobjects
+    -- better around/inside textobjects
     --
-    -- Examples:
-    --  - va)  - [V]isually select [A]round [)]paren
-    --  - yinq - [Y]ank [I]nside [N]ext [Q]uote
-    --  - ci'  - [C]hange [I]nside [']quote
+    -- examples:
+    --  - va)  - [v]isually select [a]round [)]paren
+    --  - yinq - [y]ank [i]nside [n]ext [q]uote
+    --  - ci'  - [c]hange [i]nside [']quote
     require('mini.ai').setup {
       n_lines = 500,
-      --NOTE: change these in  ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua
+      --note: change these in  ~/.local/share/nvim/lazy/mini.nvim/lua/mini/surround.lua
       -- mappings = {
-      --   add = '<C-s>a', -- Add surrounding in Normal and Visual modes
-      --   delete = '<C-s>d', -- Delete surrounding
-      --   find = '<C-s>f', -- Find surrounding (to the right)
-      --   find_left = '<C-s>F', -- Find surrounding (to the left)
-      --   highlight = '<C-s>h', -- Highlight surrounding
-      --   replace = '<C-s>r', -- Replace surrounding
-      --   update_n_lines = '<C-s>n', -- Update `n_lines`
+      --   add = '<c-s>a', -- add surrounding in normal and visual modes
+      --   delete = '<c-s>d', -- delete surrounding
+      --   find = '<c-s>f', -- find surrounding (to the right)
+      --   find_left = '<c-s>f', -- find surrounding (to the left)
+      --   highlight = '<c-s>h', -- highlight surrounding
+      --   replace = '<c-s>r', -- replace surrounding
+      --   update_n_lines = '<c-s>n', -- update `n_lines`
       --
-      --   suffix_last = 'l', -- Suffix to search with "prev" method
-      --   suffix_next = 'n', -- Suffix to search with "next" method
+      --   suffix_last = 'l', -- suffix to search with "prev" method
+      --   suffix_next = 'n', -- suffix to search with "next" method
       -- },
     }
 
-    -- Add/delete/replace surroundings (brackets, quotes, etc.)
+    -- add/delete/replace surroundings (brackets, quotes, etc.)
     --
-    -- - saiw) - [S]urround [A]dd [I]nner [W]ord [)]Paren
-    -- - sd'   - [S]urround [D]elete [']quotes
-    -- - sr)'  - [S]urround [R]eplace [)] [']
+    -- - saiw) - [s]urround [a]dd [i]nner [w]ord [)]paren
+    -- - sd'   - [s]urround [d]elete [']quotes
+    -- - sr)'  - [s]urround [r]eplace [)] [']
     require('mini.surround').setup()
 
-    -- Simple and easy statusline.
-    --  You could remove this setup call if you don't like it,
+    -- simple and easy statusline.
+    --  you could remove this setup call if you don't like it,
     --  and try some other statusline plugin
     local statusline = require 'mini.statusline'
-    -- set use_icons to true if you have a Nerd Font
+    -- set use_icons to true if you have a nerd font
     statusline.setup { use_icons = vim.g.have_nerd_font }
 
-    -- You can configure sections in the statusline by overriding their
-    -- default behavior. For example, here we set the section for
-    -- cursor location to LINE:COLUMN
+    -- you can configure sections in the statusline by overriding their
+    -- default behavior. for example, here we set the section for
+    -- cursor location to line:column
     ---@diagnostic disable-next-line: duplicate-set-field
     statusline.section_location = function()
       return '%2l:%-2v'
     end
 
     -- ... and there is more!
-    --  Check out: https://github.com/echasnovski/mini.nvim
+    --  check out: https://github.com/echasnovski/mini.nvim
   end,
 }
