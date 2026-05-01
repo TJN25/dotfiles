@@ -43,3 +43,7 @@ vim.keymap.set('n', '<leader><C-a>', 'ggVG', { desc = 'Select all text' })
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv", { desc = 'Move the current line down [J]' })
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv", { desc = 'Move the current line up [K]' })
 vim.keymap.set('n', 'J', 'mzJ`z', { desc = 'Append the following line to the end of the current line [J]' })
+
+vim.keymap.set('n', '<leader>mc', 'i- [ ] <Esc>', { desc = 'Insert markdown checkbox [mc]' })
+
+vim.keymap.set('n', '<leader>ge', 'iif err != nil {<CR>    // handle error<CR><CR>}<Esc>k', { desc = 'Insert Go error block [ge]' })

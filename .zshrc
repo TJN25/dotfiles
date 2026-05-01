@@ -2,9 +2,15 @@ source ~/.config/dotfiles/bash_alias
 source ~/.config/dotfiles/bash_paths
 source ~/.config/dotfiles/my_zsh_profile
 
+## testing
+source ~/.zshhisttrackerrc
+
 source ~/.config/powerlevel10k/powerlevel10k.zsh-theme
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+autoload -Uz compinit
+compinit
 
 # --- autosuggestions ---
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#4c566a,bold,underline"
@@ -34,3 +40,4 @@ eval "$(pixi completion --shell zsh)"
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 export PATH="/Users/nicth99p/.pixi/bin:$PATH"
+export PATH="/Users/nicth99p/sbgrid/sbgrid-installer_scripts/testing/programs/i386-mac/foo/0.1.0/bin:$PATH"

@@ -15,21 +15,10 @@
                                 },
                                 "to": [
                                     {
-                                        "set_variable": {
-                                            "name": "hyper",
-                                            "value": 1
-                                        }
+                                        "key_code": "v",
+                                        "modifiers": ["left_alt"]
                                     }
                                 ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "hyper",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_if_alone": [{ "key_code": "escape" }],
                                 "type": "basic"
                             },
                             {
@@ -731,6 +720,22 @@
                                     "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [{ "shell_command": "open -a 'Terminal.app'" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper_sublayer_o",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Open -a 'Raycast.app'",
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [{ "shell_command": "open -a 'Raycast.app'" }],
                                 "type": "basic"
                             },
                             {
@@ -2254,12 +2259,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Open raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%229E8F60D0-8973-4ADA-9267-5F742EA3B22C%22%7D",
+                                "description": "Open raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22A8DEEED0-8E56-4A68-B452-E12D1AD3EAFF%22%7D",
                                 "from": {
                                     "key_code": "s",
                                     "modifiers": { "optional": ["any"] }
                                 },
-                                "to": [{ "shell_command": "open raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%229E8F60D0-8973-4ADA-9267-5F742EA3B22C%22%7D" }],
+                                "to": [{ "shell_command": "open raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22A8DEEED0-8E56-4A68-B452-E12D1AD3EAFF%22%7D" }],
                                 "type": "basic"
                             },
                             {

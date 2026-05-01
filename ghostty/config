@@ -1,0 +1,18 @@
+# Ghostty Configuration (~/.config/ghostty/config)
+
+# Theme
+# Theme files are often placed in ~/.config/ghostty/themes/
+theme = "Catppuccin Mocha"
+
+# Font
+font-family = "MesloLGS NF"
+font-size = 24.0 # Ghostty often uses float for font size
+
+# Window Appearance
+opacity = 0.95
+window-tabs = "none"      # Equivalent to enable_tab_bar = false
+window-decorations = "none" # This hides the title bar, similar to WezTerm's RESIZE
+
+# Shell Behavior
+shell-exit-behavior = "hold" # Equivalent to WezTerm's exit_behavior = "Hold"
+

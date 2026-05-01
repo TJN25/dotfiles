@@ -21,23 +21,8 @@ const rules: KarabinerRules[] = [
         },
         to: [
           {
-            set_variable: {
-              name: "hyper",
-              value: 1,
-            },
-          },
-        ],
-        to_after_key_up: [
-          {
-            set_variable: {
-              name: "hyper",
-              value: 0,
-            },
-          },
-        ],
-        to_if_alone: [
-          {
-            key_code: "escape",
+            key_code: "v",
+            modifiers: ["left_alt"]
           },
         ],
         type: "basic",
@@ -157,6 +142,7 @@ const rules: KarabinerRules[] = [
       n: app("Notion"),
       i: app("Obsidian"),
       t: app("Terminal"),
+      r: app("Raycast"),
       // Open Notion projects 
       h: open(
         "notion://www.notion.so/Projects-Task-e3df002f363e4ef19be22806e3a299fe?pvs=32"
@@ -393,7 +379,7 @@ const rules: KarabinerRules[] = [
       c: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22B91D7FC5-5F7D-48B9-86FA-270EC19485FC%22%7D"),
       b: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%224F54E4D6-34A8-4CD4-9CCB-F9ECD3FBACD1%22%7D"),
       p: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22E514F5D6-1C09-4CD0-8485-B76D66F5B3E3%22%7D"),
-      s: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%229E8F60D0-8973-4ADA-9267-5F742EA3B22C%22%7D"),
+      s: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%22A8DEEED0-8E56-4A68-B452-E12D1AD3EAFF%22%7D"),
       t: open("raycast://extensions/raycast/raycast-ai/ai-chat?context=%7B%22preset%22:%227993EB06-6BA0-4074-B18A-30D9B47EC0C9%22%7D"),
     },
   }),

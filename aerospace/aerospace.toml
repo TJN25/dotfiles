@@ -65,7 +65,11 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 
 [[on-window-detected]]
     if.app-name-regex-substring = "Raycast"
-    run = "layout floating"
+    run = "layout tiling"
+
+[[on-window-detected]]
+    if.app-name-regex-substring = "codex"
+    run = "layout tiling"
 
 [[on-window-detected]]
     if.app-name-regex-substring = "Finder"
@@ -80,6 +84,23 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     run = "move-node-to-workspace 1"
 
 [[on-window-detected]]
+    if.app-id = 'com.github.wez.wezterm'
+    if.window-title-regex-substring = 'FLOATING_NOTES'
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = "app.zen-browser.zen"
+    run = "move-node-to-workspace 2"
+
+[[on-window-detected]]
+    if.app-id = "com.google.Chrome"
+    run = "move-node-to-workspace 6"
+
+[[on-window-detected]]
+    if.app-id = "us.zoom.xos"
+    run = "move-node-to-workspace Z"
+
+[[on-window-detected]]
     if.app-id = "org.mozilla.firefox"
     run = "move-node-to-workspace 2"
 
@@ -89,15 +110,15 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 
 [[on-window-detected]]
     if.app-id = "com.microsoft.Outlook"
-    run = "move-node-to-workspace 6"
+    run = "move-node-to-workspace 5"
 
 [[on-window-detected]]
     if.app-id = "com.1password.1password"
-    run = ["layout floating", "move-node-to-workspace 7"]
+    run = ["layout floating"]
 
 [[on-window-detected]]
     if.app-id = "com.bitwarden.desktop"
-    run = ["layout floating", "move-node-to-workspace 7"]
+    run = ["layout floating"]
 
 [[on-window-detected]]
     if.app-id = "com.seriflabs.affinitydesigner2"
@@ -120,6 +141,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     run = "move-node-to-workspace T"
 
 
+
 # Possible values: (qwerty|dvorak)
 # See https://nikitabobko.github.io/AeroSpace/guide#key-mapping
 [key-mapping]
@@ -139,6 +161,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     outer.left =       12
     outer.bottom =     12
     outer.top =        [{monitor.built-in = 24}, {monitor.main = 50}, {monitor.dell = 50},24]
+    # outer.top =        12
     outer.right =      12
 
 # 'main' binding mode declaration
@@ -212,7 +235,8 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     alt-g = 'workspace G'
     alt-i = 'workspace I'
     alt-m = 'workspace M'
-    alt-n = 'workspace N'
+    # alt-n = 'workspace N'
+    alt-n = 'exec-and-forget /Users/nicth99p/bin/dotfiles/aerospace/executable_toggle-floating-notes.sh'
     alt-o = 'workspace O'
     alt-p = 'workspace P'
     alt-q = 'workspace Q'

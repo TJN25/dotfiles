@@ -41,7 +41,7 @@ if [ "${apps}" != "" ]; then
                                                   icon.color=$WHITE
 else
   if [ "$space" = "$(aerospace list-workspaces --focused)" ]; then
-    icon_strip=" 􀝶"
+    icon_strip=" "
     sketchybar --animate sin 10 --set space.$space \
       icon.drawing=on \
       label="$icon_strip" \

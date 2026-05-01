@@ -61,6 +61,7 @@ p.s. you can delete this when you're done too. it's your config now! :)
 require 'custom/settings'
 require 'custom/keybinds'
 require 'custom/autocmds'
+require 'custom/abbreviations'
 
 -- [[ install `lazy.nvim` plugin manager ]]
 --    see `:help lazy.nvim.txt` or https://github.com/folke/lazy.nvim for more info

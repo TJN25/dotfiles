@@ -25,6 +25,13 @@ hs() {
         histgrep s $@
     }
 
+rt() {
+ (
+ cd ~/sbgrid/RT/
+ pixi run rt -- "$@"
+ )
+}
+
 tm() {
     tmux has-session -t $1 2>/dev/null;
     if [ $? != 0 ]; then
