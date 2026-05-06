@@ -13,7 +13,9 @@ WINDOW_ID=$($AEROSPACE list-windows --all --format '%{window-id}%{tab}%{window-t
 
 # Check if the floating notes window is opened up, if not, open it and exit
 if [ -z "$WINDOW_ID" ]; then
+    env PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH" \
     open -n /Applications/WezTerm.app --args --config-file "$HOME/.config/wezterm/floating_notes.lua"
+    # open -n /Applications/WezTerm.app --args --config-file "$HOME/.config/wezterm/floating_notes.lua"
     for _ in {1..20}; do
         WINDOW_ID=$($AEROSPACE list-windows --all --format '%{window-id}%{tab}%{window-title}' \
             | grep "	${TITLE}$" \
