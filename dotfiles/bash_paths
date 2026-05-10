@@ -10,3 +10,4 @@ export PATH=${PATH}:/opt/homebrew/bin
 export PATH=${PATH}:/Users/nicth99p/go/bin
 export PATH=${PATH}:/Users/nicth99p/bin/third-party/glow
 export PATH=${PATH}:/Users/nicth99p/bin/tools/local-llm
+export PATH=${PATH}:/Users/nicth99p/bin/projects/llm-agent/
