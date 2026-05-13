@@ -162,7 +162,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     outer.bottom =     12
     outer.top =        [{monitor.built-in = 24}, {monitor.main = 50}, {monitor.dell = 50},24]
     # outer.top =        12
-    outer.right =      12
+    outer.right =      [{ monitor.main = 12 }, 12]
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -291,6 +291,7 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
     alt-shift-leftSquareBracket = 'mode layout'
+    alt-shift-rightSquareBracket = 'exec-and-forget /Users/nicth99p/bin/dotfiles/aerospace/executable_toggle-ultrawide-right-padding.sh'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -315,4 +316,3 @@ exec-on-workspace-change = ['/bin/bash', '-c',
 [mode.layout.binding]
     f = ['layout floating tiling', 'mode main'] # Toggle between floating and tiling layout
     b = ['balance-sizes', 'mode main'] # Toggle between floating and tiling layout
-
