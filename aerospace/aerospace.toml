@@ -64,12 +64,17 @@ exec-on-workspace-change = ['/bin/bash', '-c',
     run = "layout floating"
 
 [[on-window-detected]]
+    if.app-id = "com.apple.Music"
+    run = "layout tiling"
+
+[[on-window-detected]]
     if.app-name-regex-substring = "Raycast"
     run = "layout tiling"
 
 [[on-window-detected]]
-    if.app-name-regex-substring = "codex"
-    run = "layout tiling"
+    if.app-id = "com.openai.codex"
+    run = ["move-node-to-workspace 4", "layout tiling"]
+
 
 [[on-window-detected]]
     if.app-name-regex-substring = "Finder"
